@@ -19,7 +19,7 @@ class Palindrome
     # all_subs.select { |string| palindrome?(string) }
   end
 
-  def combos(string)
+  def substrings(string)
     result = []
     chars = string.chars
     start_index = 0

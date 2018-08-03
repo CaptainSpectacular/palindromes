@@ -20,4 +20,17 @@ class PalindromeTest < MiniTest::Test
     end
   end
 
+  def test_all_substrings_method_with_3_char_strings
+    p = Palindrome.new
+    substrings = %w[v va var ar r]
+
+    assert_equal substrings, p.substrings("var")
+  end
+
+  def test_all_substrings_method_with_4_char_strings
+    p = Palindrome.new
+    substrings = %w[c cl cla clam l la lam am m]
+
+    assert_equal substrings, p.substrings("clam")
+  end
 end
