@@ -22,15 +22,23 @@ class PalindromeTest < MiniTest::Test
 
   def test_all_substrings_method_with_3_char_strings
     p = Palindrome.new
-    substrings = %w[v va var ar r]
+    substrings = %w[va var ar].sort
 
     assert_equal substrings, p.substrings("var")
   end
 
   def test_all_substrings_method_with_4_char_strings
     p = Palindrome.new
-    substrings = %w[c cl cla clam l la lam am m]
+    substrings = %w[cl cla clam la lam am].sort
 
     assert_equal substrings, p.substrings("clam")
+  end 
+
+  def test_all_palindromes_method
+    p = Palindrome.new
+    expected = %w[mom yy yyy yy dad].sort
+
+    assert_equal p.all_palindromes("momyyydad"), expected
+
   end
 end
