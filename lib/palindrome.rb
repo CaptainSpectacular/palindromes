@@ -14,29 +14,20 @@ class Palindrome
 
   def all_palindromes(string)
     paindromes = []
-    #n alL_subs = combos(string)
-    combos(string)
-    # all_subs.select { |string| palindrome?(string) }
+    substrings = substrings(string)
+    substrings.select { |string| palindrome?(string) }.sort
   end
 
   def substrings(string)
+    # Taken from an algorithm written in C
     result = []
-    chars = string.chars
-    start_index = 0
-    end_index = string.length - 1
-  
-    (start_index..end_index).each do |n|
-      result << string[n..end_index]
+
+    string.size.times do |n|
+      (0..n).each do |item|
+        result << string[item..n]
+      end
     end
   
-    until end_index == 0
-      result << string[0..end_index]
-      end_index -= 1
-    end
-    # Iterate over the string n times, where n is the length of the string
-      # iterate position n within string to the end string
-  
-     # m mo mom om m
-    result
+    result.sort.reject { |x| x.size == 1}
   end
 end
