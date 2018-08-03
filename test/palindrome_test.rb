@@ -39,6 +39,12 @@ class PalindromeTest < MiniTest::Test
     expected = %w[mom yy yyy yy dad].sort
 
     assert_equal p.all_palindromes("momyyydad"), expected
-
   end
+
+  def test_alternate_substrings_method
+    p = Palindrome.new
+    substrings = %w[cl cla clam la lam am].sort
+
+    assert_equal substrings, p.alternate_substrings("clam")
+  end 
 end
