@@ -13,8 +13,7 @@ class Palindrome
   end
 
   def all_palindromes(string)
-    paindromes = []
-    substrings = substrings(string)
+    substrings = alternate_substrings(string)
     substrings.select { |string| palindrome?(string) }.sort
   end
 
@@ -28,17 +27,20 @@ class Palindrome
       end
     end
   
-    result.sort.reject { |x| x.size == 1}
+    result.sort.reject { |x| x.size == 1 }
   end
 
   def alternate_substrings(string)
+    # An original way to find substrings using the each_cons enumerable
     result = []
     chars = string.chars
+
     (2..(string.size)).each do |n|
       chars.each_cons(n).each do |combo|
         result << combo.join("")
       end
     end
+
     result.sort
   end
 end
